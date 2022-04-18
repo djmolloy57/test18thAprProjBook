@@ -13,7 +13,10 @@ if os.path.exists("env.py"):
     import env
 
 
-app = Flask(__name__)
+#app = Flask(__name__)
+
+app=Flask(__name__,template_folder='template')
+
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -25,12 +28,12 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_tasks")
 def get_tasks():
-    tasks = list(mongo.db.books.find())
+    tasks = list(mongo.db.testBooks.find())
     return render_template("tasks.html", tasks=tasks)
 
 @app.route("/get_biography")
 def get_biography():
-    result_bio = mongo.db.books.find({
+    result_bio = mongo.db.testBooks.find({
     "Category" : { "$eq" : "Biography"}})
     return render_template("book_by_category.html", result_1=result_bio)
 
@@ -38,19 +41,19 @@ def get_biography():
 @app.route("/get_history")
 def get_history():
 
-    result_hist = mongo.db.books.find({
+    result_hist = mongo.db.testBooks.find({
     "Category" : { "$eq" : "History"}})
     return render_template("book_by_category.html", result_1=result_hist)
 
 @app.route("/get_fantasy")
 def get_fantasy():
-    result_fantasy = mongo.db.books.find({
+    result_fantasy = mongo.db.testBooks.find({
     "Category" : { "$eq" : "Fantasy"}})
     return render_template("book_by_category.html", result_1=result_fantasy)
 
 @app.route("/get_thriller")
 def get_thriller():
-    result_thriller = mongo.db.books.find({
+    result_thriller = mongo.db.testBooks.find({
     "Category" : { "$eq" : "Thriller"}})
     if len(list(result_thriller))==0:
        result_thriller=" "
@@ -59,7 +62,7 @@ def get_thriller():
 
 @app.route("/delete_bk")
 def delete_bk():
-    lists = list(mongo.db.books.find())
+    lists = list(mongo.db.testBooks.find())
     return render_template("delete_book.html", lists=lists)
 
 @app.route("/add_or_delete_bk" ,methods=['GET', 'POST'])
@@ -76,7 +79,7 @@ def add_or_delete_bk():
             "Number_of_Reviews": 0,
             "review": ""
         }
-        added_new_rec = mongo.db.books.insert_one(task)
+        added_new_rec = mongo.db.testBooks.insert_one(task)
         if  added_new_rec:
             try:
         
@@ -106,7 +109,7 @@ def view_add_review():
 
     if request.method == 'POST':
         book_id = request.form['book_id']
-        book = list(mongo.db.books.find({"_id" : ObjectId(book_id)}))
+        book = list(mongo.db.testBooks.find({"_id" : ObjectId(book_id)}))
         
         return render_template("view_add_review.html", bk=book)
 
@@ -125,7 +128,7 @@ def delete_book():
     test1='inside start of delete book function'
     try:
         delbkid = request.form['book_id']
-        dbResponse = mongo.db.books.delete_one({"_id" : ObjectId(delbkid)})
+        dbResponse = mongo.db.testBooks.delete_one({"_id" : ObjectId(delbkid)})
         if dbResponse.deleted_count == 1:
             return Response(
                 response= json.dumps(
@@ -156,11 +159,11 @@ def submit_review():
 
         bkid = request.form['bkid']
         bookreview = request.form['writeReviewForm']
-        review_add_id = mongo.db.books.find({"_id" : ObjectId(bkid)})
+        review_add_id = mongo.db.testBooks.find({"_id" : ObjectId(bkid)})
         if  review_add_id:
             try:
                 #got the update review array using $push from site https://docs.mongodb.com/manual/reference/operator/update/push/
-                dbResponse = mongo.db.books.update_one({"_id" : ObjectId(bkid)},{"$push" : {"review": bookreview}})
+                dbResponse = mongo.db.testBooks.update_one({"_id" : ObjectId(bkid)},{"$push" : {"review": bookreview}})
 
                 flash("Review has been added")
 
@@ -194,7 +197,7 @@ def update(id,review):
     review_bk_update = review
     if request.method == "POST":
      
-        review_bkid = mongo.db.books.find({"_id" : ObjectId(review_bk_id)})
+        review_bkid = mongo.db.testBooks.find({"_id" : ObjectId(review_bk_id)})
         
         if review_bkid:
         
