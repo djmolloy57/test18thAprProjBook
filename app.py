@@ -15,7 +15,7 @@ if os.path.exists("env.py"):
 
 #app = Flask(__name__)
 
-app=Flask(__name__,template_folder='template')
+app=Flask(__name__,template_folder='templates')
 
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -30,6 +30,7 @@ mongo = PyMongo(app)
 def get_tasks():
     tasks = list(mongo.db.testBooks.find())
     return render_template("tasks.html", tasks=tasks)
+    #return render_template("base.html", tasks=tasks)
 
 @app.route("/get_biography")
 def get_biography():
