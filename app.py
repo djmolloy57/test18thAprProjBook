@@ -46,6 +46,13 @@ def get_history():
     "Category" : { "$eq" : "History"}})
     return render_template("book_by_category.html", result_1=result_hist)
 
+@app.route("/get_scifi")
+def get_scifi():
+
+    result_scifi = mongo.db.testBooks.find({
+    "Category" : { "$eq" : "SciFi"}})
+    return render_template("book_by_category.html", result_1=result_scifi)
+
 @app.route("/get_fantasy")
 def get_fantasy():
     result_fantasy = mongo.db.testBooks.find({
@@ -78,7 +85,7 @@ def add_or_delete_bk():
             "Author": request.form.get("Author"),
             "book_cover": request.form.get("book_cover"),
             "Number_of_Reviews": 0,
-            "review": ""
+            "review": []
         }
         added_new_rec = mongo.db.testBooks.insert_one(task)
         if  added_new_rec:
@@ -131,18 +138,22 @@ def delete_book():
         delbkid = request.form['book_id']
         dbResponse = mongo.db.testBooks.delete_one({"_id" : ObjectId(delbkid)})
         if dbResponse.deleted_count == 1:
-            return Response(
-                response= json.dumps(
-                {"message":"book deleted"}),
-                status=200,
-                mimetype="application/json"
-            )     
-            return Response(
-                response= json.dumps(
-                {"message":"book not found"}),
-                status=200,
-                mimetype="application/json"
-            )
+            lists = list(mongo.db.testBooks.find())
+            return render_template("delete_book.html", lists=lists)
+    
+            #return render_template("tasks.html")
+           # return Response(
+           #     response= json.dumps(
+           #     {"message":"book deleted"}),
+           #     status=200,
+           #     mimetype="application/json"
+           # )     
+           # return Response(
+           #     response= json.dumps(
+           #     {"message":"book not found"}),
+           #     status=200,
+           #     mimetype="application/json"
+           # )
     except Exception as ex:
         print(ex)
         return Response( 
@@ -151,8 +162,11 @@ def delete_book():
             status=500,
             mimetype="application/json"
         )
-        return render_template("delete_book.html")
-       
+    #return render_template("delete_book.html")
+    lists = list(mongo.db.testBooks.find())
+    return render_template("delete_book.html", lists=lists)
+    delete_bk()
+
 
 @app.route("/submit_review", methods=['GET','POST'])
 def submit_review():
@@ -192,22 +206,37 @@ def check_selected():
 
  
 @app.route('/update/<id>/<review>' , methods=['GET', 'POST'])
+#@app.route('/update/<id>' , methods=['GET', 'POST'])
 def update(id,review):
-
+#def update(id):
     review_bk_id = id
-    review_bk_update = review
+    #review_bk_update = request.form['review'] #request.form['sex']
+    review_bk_update = request.form.get("review")
+    #review_bk_update = review
+    
     if request.method == "POST":
      
+        #mongo.db.testBooks.update_one({"_id" : ObjectId(bkid)},{"$push" : {"review": bookreview}})
         review_bkid = mongo.db.testBooks.find({"_id" : ObjectId(review_bk_id)})
         
         if review_bkid:
+            print("Found the book to update!!")
         
             try:
                 
                 print(review_bk_id)
                 print(review_bk_update)
                 
-                db.books.update_one({'_id': review_bk_id, 'review': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
+               # db.testBooks.update_one({'_id': review_bk_id, 'review[1]': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
+               #db.testBooks.update_one({"_id" : review_bk_id, 'review': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
+               
+               #db.employees.updateMany({_id:5},{$set:{ skills:["Sales Tax"]}})
+               #db.testBooks.update_one({"_id" : review_bk_id},{"$set": { "review":["Sales Tax"]}})
+
+                db.testBooks.updateMany({"_id" : review_bk_id},{"$set": { "review":["Sales Tax"]}})
+                
+                #db.testBooks.arrays.update({'_id': review_bk_id, 'review': { $['1']: {"$set": {"review.$": review_bk_update}}}})
+                #db.testBooks.arrays.update({'_id': review_bk_id, 'review[1]': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
                 return redirect('/view_add_review')
             except:
                 return "There was a problem updating that record"
