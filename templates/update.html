@@ -10,7 +10,13 @@
           <input type="text" placeholder="{{ review_bk_id }}" name="id" value="{{ review_bk_id }}">
           <input type="text" placeholder="{{review_bk_update}}" name="review" value="{{review_bk_update}}">
           <input type="text" placeholder="{{review_bk_update}}" name="review" value="{{review_bk_update}}">
-          <input type="submit" value="Update Review" class="btn btn-secondary">
+          <a href="{{ url_for('get_tasks') }}" class="btn-large red text-shadow">
+            Cancel <i class="fas fa-times-circle right"></i>
+          </a>
+         
+          <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+            Update Review <i class="fas fa-edit right"></i>
+          </button>
          </form>
       </div>
 
