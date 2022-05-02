@@ -221,8 +221,15 @@ def update(id,review):
                 
                 print(review_bk_id)
                 print(review_bk_update1)
+             
                 
-                db.books.update_one({'_id': review_bk_id, 'review': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
+                #mongo.db.testBooks.update_one({'_id': review_bk_id, 'review': { "$elemMatch": {"$set": {"review.$": review_bk_update1}}}})
+                #mongo.db.testBooks.update_one({'_id': ObjectId("625d5030e92aadbab8e547bb"), 'review': { "$elemMatch": {"$set": {"review.$": review_bk_update1}}}})
+                #$set: { "grades.$[element]"
+                #mongo.db.testBooks.update_one({'_id': ObjectId("625d5030e92aadbab8e547bb")},{"$set": {"review.$[element]": review_bk_update1}} , {'arrayFilters': [{'element._id': 3}]},update=True)
+                #mongo.db.testBooks.update_one({'_id': ObjectId("625d5030e92aadbab8e547bb") },submit)
+                mongo.db.testBooks.update_one({'_id': ObjectId(id), 'review': review},{"$set": {"review.$": review_bk_update1}})
+         
                 return redirect('/view_add_review')
      
                #db.employees.updateMany({_id:5},{$set:{ skills:["Sales Tax"]}})
