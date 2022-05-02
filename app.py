@@ -204,40 +204,34 @@ def check_selected():
     post = request.args.get('post', 0, type=int)
     return json.dumps({'selected post': str(post)});
 
- 
+
 @app.route('/update/<id>/<review>' , methods=['GET', 'POST'])
-#@app.route('/update/<id>' , methods=['GET', 'POST'])
 def update(id,review):
-#def update(id):
+
     review_bk_id = id
-    #review_bk_update = request.form['review'] #request.form['sex']
-    review_bk_update = request.form.get("review")
-    #review_bk_update = review
-    
+    review_bk_update = review
+    review_bk_update1 = request.form.get("review")
     if request.method == "POST":
      
-        #mongo.db.testBooks.update_one({"_id" : ObjectId(bkid)},{"$push" : {"review": bookreview}})
-        review_bkid = mongo.db.testBooks.find({"_id" : ObjectId(review_bk_id)})
+        review_bkid = mongo.db.books.find({"_id" : ObjectId(review_bk_id)})
         
         if review_bkid:
-            print("Found the book to update!!")
         
             try:
                 
                 print(review_bk_id)
-                print(review_bk_update)
+                print(review_bk_update1)
                 
-               # db.testBooks.update_one({'_id': review_bk_id, 'review[1]': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
-               #db.testBooks.update_one({"_id" : review_bk_id, 'review': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
-               
+                db.books.update_one({'_id': review_bk_id, 'review': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
+                return redirect('/view_add_review')
+     
                #db.employees.updateMany({_id:5},{$set:{ skills:["Sales Tax"]}})
                #db.testBooks.update_one({"_id" : review_bk_id},{"$set": { "review":["Sales Tax"]}})
 
-                db.testBooks.updateMany({"_id" : review_bk_id},{"$set": { "review":["Sales Tax"]}})
+                #db.testBooks.updateMany({"_id" : review_bk_id},{"$set": { "review":["Sales Tax"]}})
                 
                 #db.testBooks.arrays.update({'_id': review_bk_id, 'review': { $['1']: {"$set": {"review.$": review_bk_update}}}})
                 #db.testBooks.arrays.update({'_id': review_bk_id, 'review[1]': { "$elemMatch": {"$set": {"review.$": review_bk_update}}}})
-                return redirect('/view_add_review')
             except:
                 return "There was a problem updating that record"
     else:
