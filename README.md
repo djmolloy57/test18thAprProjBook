@@ -106,8 +106,14 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
       in the style css.
 
 # Database Schema
-Field	Data Type	Form Validation Type	Required Field
-_id	  ObjectId	 Auto generated	         Yes
+Field	            Data Type	     Form Validation Type	   Required Field
+_id	              ObjectId	     Auto generated	         Yes
+book_name         String         Text                    Yes
+Author            String         Text                    Yes
+Number_of_Reviews Int32          None                    No
+book_cover        String         Text                    Yes
+book_summary      String         Text                    Yes
+Review            String Array   None                    No
 
 
 # Testing
