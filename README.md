@@ -137,6 +137,20 @@ o	Desktop Chrome
 o	Phone Samsung 7
 o	iPhone 6
 
+# Bugs and troubleshooting
+
+1.	Materialize
+Materialize styling library was more limited than other other frameworks such as Bootstrap.
+
+2 Resizing of the navbar header was not reflected correctly for certain screen sizes . I had to implement a custom media query as a workaround
+
+3 MongoDb altering/amending array content for the book collection Review field for the edit Review on book page proved timeconsumming - resolved issue by looking for nuggets of information in 3rd party mongodb site.
+
+add more here....
+
+
+
+ styling for my needs.
 
 
 # Deployment
