@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <body>
+
 <div class="container">
     <h3 class="light-blue-text text-darken-4 center-align">Add Book</h3>
-
+        
     <div class="row card-panel grey lighten-5">
+        
         <form class="col s12" method="POST" action="{{ url_for('add_or_delete_bk') }}">
             <!-- Book category -->
 			<div class="row">
+               
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix light-blue-text text-darken-4"></i> 
                     <select>
@@ -17,9 +20,11 @@
                         <option value="Fantasy">Fantasy</option>
                         <option value="Scifi">SciFi</option> 
                     </select>
-                    <label for="Category">Category</label>
+                  
                 </div>
 			</div>
+
+           
             <!-- Book Name -->
             <div class="row">
                 <div class="input-field col s12">
@@ -69,7 +74,7 @@
 <script>
     //got dropdown from https://www.youtube.com/watch?v=XCC-K6Q9h7M
 	document.addEventListener('DOMContentLoaded', function(){
-	   var sel=document.querySelectAll('select');
+	       var sel=document.querySelectorAll('select');
            M.FormSelect.init(sel)
        })
 </script>
