@@ -63,8 +63,8 @@ def get_fantasy():
 def get_thriller():
     result_thriller = mongo.db.testBooks.find({
     "Category" : { "$eq" : "Thriller"}})
-    if len(list(result_thriller))==0:
-       result_thriller=" "
+    #if len(list(result_thriller))==0:
+    #   result_thriller=" "
     return render_template("book_by_category.html", result_1=result_thriller)
 
 
@@ -77,6 +77,8 @@ def delete_bk():
 def add_or_delete_bk():
 
     if request.method == "POST":
+
+        print(request.form.get("Category"))
        
         task = {
             "Category": request.form.get("Category"),
