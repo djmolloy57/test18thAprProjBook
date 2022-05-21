@@ -3,44 +3,51 @@
 {% block content %}
 
 <div class="container">
+{% if result_1 ==0 %}
+  
+    <h4>Book List</h4>
+{% else %}
+    <h4>{{ result_1[0]['Category'] }} Book List</h4>
+    
+{% endif %}
+{% if result_1 %}
+ <h6 id="swipe">Please swipe right to view all listing</h6>
+{% endif %}
+
+
+
 <table class="column-options bordered responsive-table">
+  <tr>
     <th>BOOK NAME</th>
     <th>AUTHOR</th>
     <th>CATEGORY</th>
     <th>BOOK COVER</th>
     <th>NUMBER OF REVIEWS</th>
     <th>REVIEWS</th>
-    {% if result_1 ==0 %}
-        <h4>Book List</h4>
-    {% else %}
-        <h4>{{ result_1[0]['Category'] }} Book List</h4>
-        
-    {% endif %}
+  </tr>
+    
     
     {% for res in result_1 %}
                 
-            {% if loop.index > 1 %}
-                <h6 id="swipe">Please swipe right to view all listing</h6>
-            {% endif %}
+           
             <tr>
-            <td>{{ res.book_name }}</td>
-            <td>{{ res.Author}}</td>
-            <td>{{ res.Category}}</td>
-            <td><img src="{{ res.book_cover}}"></td>
-            <td>{{res['review']|length}}</td>
+                <td>{{ res.book_name }}</td>
+                <td>{{ res.Author}}</td>
+                <td>{{ res.Category}}</td>
+                <td><img src="{{ res.book_cover}}" alt="Book Cover pic"></td>
+                <td>{{res['review']|length}}</td>
         
-            <td>
-                <form action="/view_add_review" method="post" role="form">
-                    <input type="hidden" id="book_id" name="book_id" value="{{ res._id }}">
-                    <input type="submit" name="submit" value="View/Add Review" class="btn btn-info">
-                </form>
-            </td>
-   
-            <br>
+                <td>
+                    <form action="/view_add_review" method="post" role="form">
+                        <input type="hidden" id="book_id" name="book_id" value="{{ res._id }}">
+                        <input type="submit" name="submit" value="View/Add Review" class="btn btn-info">
+                    </form>
+                    <br>
+                </td>
+            
+           
             </tr>
       
-            <br>
-            </tr>
     {% endfor %}
     
 </table>
