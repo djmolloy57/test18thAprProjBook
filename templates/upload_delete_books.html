@@ -7,13 +7,13 @@
         
     <div class="row card-panel grey lighten-5">
         
-        <form class="col s12" method="POST" action="{{ url_for('add_or_delete_bk') }}">
+        <form class="col s12" onsubmit="return validateCategory()" method="POST" action="{{ url_for('add_or_delete_bk') }}">
             <!-- Book category -->
 			<div class="row">
                
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix light-blue-text text-darken-4"></i> 
-                    <select id="Category" name="Category" required>
+                    <select id="Category" name="Category">
                         <option value="" selected disabled>Choose Book category</option>
                         <option value="Biography">Biography</option>
                         <option value="History">History</option>
@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="input-field col s12">
 					<i class="far fa-image prefix light-blue-text text-darken-4"></i>
-                    <input id="book_cover" name="book_cover" type="text" required>
+                    <input type="url" id="book_cover" name="book_cover" required>
                     <label for="book_cover">Book cover picture url</label>
 				</div>
 			</div>
@@ -78,6 +78,20 @@
 	       var sel=document.querySelectorAll('select');
            M.FormSelect.init(sel)
        })
+
+    //validate Category dropdown https://www.youtube.com/watch?v=ErChak2PgGE
+    function validateCategory(){
+        let s1 = document.getElementById("Category").value;
+        console.log(s1);
+        if (s1 == ""){
+            alert("Please select Category");
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
 </script>
 
 {% endblock %}
