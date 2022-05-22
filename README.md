@@ -85,6 +85,10 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
 
 # Technologies Used
 
+The website is implemented using the Jinja template engine which allows for the use of 
+Jinja templating logic along with the Flask framework in Python
+
+
 * HTML
     * For basic website page structure / markup
 
@@ -100,8 +104,7 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
 
 
 * python/Flask
-     * provides site logic, connect front end site to mongodb to allow site to view Books stored on mongo Database, add reviews and books.
-       Delete Books.
+     * provides site logic, connect front end site to mongodb to allow site to view Books stored on mongo Database, add reviews and books. Delete Books.
 
 * mongodb
      * To provide storage storage of Books details such as Book name, Category type, Book cover picture urls and Reviews 
@@ -112,6 +115,22 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
 * Google Font
     * to make Paragraph Heading on Home page look clearer I used Roboto font-family referencing https://fonts.google.com/ CDN<br>
       in the style css.
+
+Flask Modules used:
+
+* render_template: This method is used for delivering the required page from the templates folder and the respective 
+  template inheritance and Jinja templating logic.
+
+* redirect: This method is used to redirect users to a different URL than the one requested as an aid to site navigation.
+
+* url_for: This is used to generate a URL to a given endpoint and calls the respective Python function to be executed.
+
+Flask PyPI import packages used:
+
+* dnspython: This module is a DNS toolkit for Python. It is used for server queries and dynamic updates.
+
+* flask-pymongo: This module is used as the interface with MongoDb for performing database CRUD operations
+
 
 # Database Schema
 | Field         | Data Type     |   Form Validation Type   | Required Field|
