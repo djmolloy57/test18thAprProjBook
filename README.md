@@ -174,12 +174,12 @@ Materialize styling library was more limited than other other frameworks such as
 5. Add Book page Category field was originally a text field but this caused issues as anything could be entered in this field
    I wanted to make sure only a select type of categories could be entered. I create a select dropdown where only a select amount of topic could entered. 
 
-Test: Site validation
-The site pages and code been validated using the following online validators:
+Test Site validation:
+* The site pages and code been validated using the following online validators
 
-W3C Validation Service
-pep8online
-jshint
+1. W3C Validation Service
+2. pep8online
+3. jshint
 No errors were found.
 
 
