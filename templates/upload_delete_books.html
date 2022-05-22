@@ -61,6 +61,9 @@
                     <label for="book_cover">Book cover picture url</label>
 				</div>
 			</div>
+           
+
+           
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
@@ -84,7 +87,17 @@
         let s1 = document.getElementById("Category").value;
         console.log(s1);
         if (s1 == ""){
-            alert("Please select Category");
+
+            alert("BOOK CATEGORY NOTICE "  +"\n"
+            +"\n"
+            +"Please select a Book Category " +"\n"
+            +"its a required feild!");
+
+            //alert("Please select Category");
+
+            //https://stackoverflow.com/questions/38156282/create-alert-using-materialize-css
+          
+
             return false;
         }
         else {
