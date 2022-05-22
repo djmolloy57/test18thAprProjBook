@@ -166,7 +166,9 @@ Test Site validation:
 
 1. W3C Validation Service
 2. pep8online
-3. jshint <br>
+3. jshint 
+<br>
+
 No errors were found.
 
 # Bugs and troubleshooting
