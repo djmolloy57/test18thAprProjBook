@@ -263,31 +263,21 @@ To deploy to Heroku from GitHub master branch
 5.	This setting can be automated so any new merges to the GitHub master branch will automatically redeploy and   build on Heroku Apps.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Feature would like:
   * Recommended Book section. 
   * A search book bar. 
   * A login for user to add books to a cart to purchase.
 
 # Credits
-
-## Media
-    
    
 ## Acknowledgements
 
    * Nav menu and book upload page borrowed from Mini Project Task Manager.
-    
-   * Got helpful hints on solving issue from https://stackoverflow.com/
+
+   * Materialized reference: https://materializecss.com/getting-started.html
+
+   * Flask reference: https://www.fullstackpython.com/flask.html
+
+   * Resolving Category dropdown checking selection: https://www.youtube.com/watch?v=ErChak2PgGE
+
+   * Other sites https://stackoverflow.com/
