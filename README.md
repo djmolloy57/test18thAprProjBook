@@ -135,12 +135,12 @@ The following site Features were tested with unittest module in test_website.py:
   * /get_history - History Book listing page
 
 Test - Add Book
-All Fields on the Add Book form are required and form will not submit the form information untill
+All Fields on the Add Book form are required and form will not submit the form information until
 all the field are completed and the field input is the correct format.
 Example:
-The Book Summary field has a mininmum length and user will receive a prompt if the input is less than the length.
-The Book Cover requires the input type to be a url and will prompt user if input is anything other than a url.
-The Book Category dropdown needs to be selected and will prompt user if no category is selected.
+* The Book Summary field has a mininmum length and user will receive a prompt if the input is less than the length.
+* The Book Cover requires the input type to be a url and will prompt user if input is anything other than a url.
+* The Book Category dropdown needs to be selected and will prompt user if no category is selected.
 
 
 Manual Testing
