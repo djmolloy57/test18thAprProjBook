@@ -123,6 +123,19 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
 Unit Testing
 The python unittest module was used to derive to test the different app.py routes for app site.
 
+The following site Features were tested with unittest module in test_website.py:
+1. Testing 200 ok response for the feature page
+2. Testing you unique site page html tag to ensure correct page is returned in test to validate site route.
+
+  * /get_task -  Home page
+  * /add_or_delete_bk - Add Book page
+  * /delete_bk - Delete Book page
+  * /get_biography - Biography Book listing page
+  * /get_fantasy - Fantasy Book listing page
+  * /get_history - History Book listing page
+
+
+
 Manual Testing
 CSS was tested by using Google Chrome Developer Tools to alter elements on the page.
 
