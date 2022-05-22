@@ -121,9 +121,9 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
 
 # Testing
 Unit Testing:
-The python unittest module was used to derive to test the different app.py routes for app site.
 
-The following site Features were tested with unittest module in test_website.py:
+* The python unittest module was used to derive to test the different app.py routes for app site.
+* The following site Features were tested with unittest module in test_website.py:
 1. Testing 200 ok response for the feature page
 2. Testing you unique site page html tag to ensure correct page is returned in test to validate site route.
 
@@ -135,7 +135,7 @@ The following site Features were tested with unittest module in test_website.py:
   * /get_history - History Book listing page
 
 Test - Add Book:
-All Fields on the Add Book form are required and form will not submit the form information until
+* All Fields on the Add Book form are required and form will not submit the form information until
 all the field are completed and the field input is the correct format.
 Example:
 * The Book Summary field has a mininmum length and user will receive a prompt if the input is less than the length.
