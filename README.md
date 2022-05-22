@@ -21,6 +21,12 @@ The website is intended to be accessible on all type of devices<br> mobile phone
 
 # UX
 
+###Navbar:
+A fixed navbar is used in the website for ease of navigation, in mobile view switches to a burger menu upon clicking displays navbar options. A visiting user to the site can intuitively access the different features of the site.
+
+###Category Dropdown:
+A user can view all uploaded books listing by Category Genre to suit specific user tastes.
+
 ### Strategy
 The object of the website is to inform visitor of different Books, allow them to view book summary and reviews 
 
