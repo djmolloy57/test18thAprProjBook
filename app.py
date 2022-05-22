@@ -28,12 +28,20 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_tasks")
 def get_tasks():
+    '''this route function 
+       returns main page book list
+    '''
     tasks = list(mongo.db.testBooks.find())
     return render_template("tasks.html", tasks=tasks)
+ 
     #return render_template("base.html", tasks=tasks)
 
 @app.route("/get_biography")
 def get_biography():
+    ''' this route function 
+        looks up Biography data set in DB
+        returns the Biography book list
+    '''
     result_bio = mongo.db.testBooks.find({
     "Category" : { "$eq" : "Biography"}})
     return render_template("book_by_category.html", result_1=result_bio)
@@ -41,40 +49,63 @@ def get_biography():
 
 @app.route("/get_history")
 def get_history():
-
+    ''' this route function 
+        looks up History data set in DB
+        returns the History book list
+    '''
     result_hist = mongo.db.testBooks.find({
     "Category" : { "$eq" : "History"}})
     return render_template("book_by_category.html", result_1=result_hist)
 
 @app.route("/get_scifi")
 def get_scifi():
-
+    ''' this route function 
+        looks up SciFi data set in DB
+        returns the SciFi book list
+    '''
     result_scifi = mongo.db.testBooks.find({
     "Category" : { "$eq" : "SciFi"}})
     return render_template("book_by_category.html", result_1=result_scifi)
 
 @app.route("/get_fantasy")
 def get_fantasy():
+    ''' this route function 
+        looks up Fantasy data set in DB
+        returns the Fanatasy book list
+    '''
     result_fantasy = mongo.db.testBooks.find({
     "Category" : { "$eq" : "Fantasy"}})
     return render_template("book_by_category.html", result_1=result_fantasy)
+  
 
 @app.route("/get_thriller")
 def get_thriller():
+    ''' this route function 
+        looks up Thriller data set in DB
+        returns the Thriller book list
+    '''
     result_thriller = mongo.db.testBooks.find({
     "Category" : { "$eq" : "Thriller"}})
     #if len(list(result_thriller))==0:
     #   result_thriller=" "
     return render_template("book_by_category.html", result_1=result_thriller)
 
-
 @app.route("/delete_bk")
 def delete_bk():
+    ''' Test route function 
+        list data set in DB
+        returns book list
+    '''
     lists = list(mongo.db.testBooks.find())
     return render_template("delete_book.html", lists=lists)
 
 @app.route("/add_or_delete_bk" ,methods=['GET', 'POST'])
 def add_or_delete_bk():
+    ''' this route function 
+        adds form data for new book 
+        to DB Book Document
+        returns site main page
+    '''
 
     if request.method == "POST":
 
@@ -114,6 +145,9 @@ def add_or_delete_bk():
   
 @app.route('/view_add_review', methods=['GET', 'POST'])
 def view_add_review():
+    ''' this route function 
+        returns the view/add review page
+    '''
     if request.method == 'GET':
         return render_template("view_add_review.html")
 
@@ -125,6 +159,9 @@ def view_add_review():
 
 @app.route("/write_review", methods=['GET','POST'])
 def write_review():  
+    ''' this route function 
+        returns the write a review page
+    '''
     if request.method == 'GET':
         return render_template("write_review.html")
 
@@ -135,6 +172,11 @@ def write_review():
 
 @app.route("/delete_book", methods=['POST'])
 def delete_book():
+    ''' this route function 
+        get the book id for the book to delete
+        and looks up the id in the Mongo DB document to delete
+        returns the the delete book page
+    '''
     test1='inside start of delete book function'
     try:
         delbkid = request.form['book_id']
@@ -172,6 +214,14 @@ def delete_book():
 
 @app.route("/submit_review", methods=['GET','POST'])
 def submit_review():
+    ''' this route function 
+        get the book id and the writeReviewForm field which is assigned
+        to bookreview variable.
+        and looks up the id in the Book Document in the DB
+        and for that book id that bookvariable content to the Document
+        review string array
+        returns to main page
+    '''
     if request.method == 'POST':
 
         bkid = request.form['bkid']
@@ -200,6 +250,10 @@ def submit_review():
  
 @app.route("/check_selected", methods=['GET','POST'])
 def check_selected():
+    ''' this route function 
+        edit review and looks up the id for particular book in the Mongo DB document
+        
+    '''
     global selected
     getbkid = request.form['booksid']
     #if getbkid == 0:
@@ -209,6 +263,14 @@ def check_selected():
 
 @app.route('/update/<id>/<review>' , methods=['GET', 'POST'])
 def update(id,review):
+    ''' this route function takes in two parameter
+        book id and the amended review  
+        looks up the id for particular book in the Mongo DB document and update
+        the particular string array review to the new ammended review.
+        return to main page
+
+        
+    '''
 
     review_bk_id = id
     review_bk_update = review
@@ -232,7 +294,8 @@ def update(id,review):
                 #mongo.db.testBooks.update_one({'_id': ObjectId("625d5030e92aadbab8e547bb") },submit)
                 mongo.db.testBooks.update_one({'_id': ObjectId(id), 'review': review},{"$set": {"review.$": review_bk_update1}})
          
-                return redirect('/view_add_review')
+                #return redirect('/view_add_review')
+                return redirect('/')
      
                #db.employees.updateMany({_id:5},{$set:{ skills:["Sales Tax"]}})
                #db.testBooks.update_one({"_id" : review_bk_id},{"$set": { "review":["Sales Tax"]}})
