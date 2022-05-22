@@ -85,7 +85,9 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
 # Technologies Used
 
 The website is implemented using the Jinja template engine which allows for the use of 
-Jinja templating logic along with the Flask framework in Python
+Jinja templating logic along with the Flask framework in Python.
+
+### Technologies:
 
 
 * HTML
