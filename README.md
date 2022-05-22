@@ -133,7 +133,9 @@ Flask PyPI import packages used:
 * flask-pymongo: This module is used as the interface with MongoDb for performing database CRUD operations
 
 
-# Database Schema
+# Database Schema:
+In this project in my MongoDB database is a simple setup of one Book document with the following fields:
+
 | Field         | Data Type     |   Form Validation Type   | Required Field|
 | ------------- |-------------  |:-------------------------|-------------:
 | _id           | ObjectId      | Auto generated           | Yes
