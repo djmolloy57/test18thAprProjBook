@@ -168,7 +168,6 @@ Test Site validation:
 2. pep8online
 3. jshint 
 <br>
-
 No errors were found.
 
 # Bugs and troubleshooting
