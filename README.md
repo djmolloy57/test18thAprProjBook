@@ -127,6 +127,7 @@ Unit Testing:
 1. Testing 200 ok response for the feature page
 2. Testing you unique site page html tag to ensure correct page is returned in test to validate site route.
 
+Test were run on site pages and features: 
   * /get_task -  Home page
   * /add_or_delete_bk - Add Book page
   * /delete_bk - Delete Book page
