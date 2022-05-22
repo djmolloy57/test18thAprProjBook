@@ -162,13 +162,13 @@ o	iPhone 6
 
 
 Test Site validation:
-* The site pages and code been validated using the following online validators
+* The site pages and code been validated using the following online validators - No errors were found.
 
 1. W3C Validation Service
 2. pep8online
 3. jshint 
-<br>
-No errors were found.
+
+
 
 # Bugs and troubleshooting
 
