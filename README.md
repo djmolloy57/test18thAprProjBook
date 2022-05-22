@@ -118,9 +118,8 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
 
 
 # Testing
-Automated Testing
-The python unittest module was used to derive automated tests for the functions in the app.py file.
-pytest to test website routes.
+Unit Testing
+The python unittest module was used to derive to test the different app.py routes for app site.
 
 Manual Testing
 CSS was tested by using Google Chrome Developer Tools to alter elements on the page.
@@ -147,7 +146,12 @@ Materialize styling library was more limited than other other frameworks such as
 
 3 MongoDb altering/amending array content for the book collection Review field for the edit Review on book page proved timeconsumming - resolved issue by looking for nuggets of information in 3rd party mongodb site.
 
-add more here....
+4. The Book cover field was original a text field causing caused issues as anything could be entered in this field it should only allow url type entries. Since this was not done originally any none url field enter caused console 404 error on loading the website GET https://djm-flask-book-review-test. get_tasks:178  herokuapp.com/Eiusmod%20pariatur%20Co 404 (NOT FOUND). This was due to a non url entry Book cover field.  The Book Cover field was changed to input type url and this error no longer occurred.
+
+5. Add Book page Category field was originally a text field but this caused issues as anything could be entered in this field
+   I wanted to make sure only a select type of categories could be entered. I create a select dropdown where only a select amount of topic could entered. 
+
+
 
 
 
