@@ -60,7 +60,18 @@ A button is provided for the listed book to view and add review.
 In the main the wireframes more or less match my final project.
 See links to relevent section of the wireframes below:
 
-
+* home
+    * Link: <a href="wireframes/wireframe_add_book.png" target="_blank" >Wireframe Home Page</a>
+   
+* Add Book
+    * Link: <a href="wireframes/wireframe_home_page.png" target="_blank" >Wireframe Add Book Page</a>
+    
+* Delete Book
+    * Link: <a href="wireframes/wireframes_delete_book.png" target="_blank">Wireframe Delete Book Page</a>
+    
+* View/Add Review 
+    * Link: <a href="wireframes/wireframes_view_add_review.png" target="_blank">Wireframe View/Add Review Page</a>
+    
 ##  Images
 The images such as book covers also blended in well with the sites colour scheme.
 
