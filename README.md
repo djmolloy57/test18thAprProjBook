@@ -69,10 +69,12 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
 # Features
   
   The site requires minimum input from the user<br>
-    * Visitor/user on entering main site see list books showing book details such as book name, Author, category, how many reviews 
-      have been added for the book and a button next to it to view and add review.<br>
+    * Visitor/user on entering main site see list books showing book details such as book name, Author, category, how many reviews have been added for the book and a button next to it to view and add review.<br>
     * Within the view and add review page, a book summary is provide and a list of submitted book reviews. There an a button to submit a book review.<br>
+    * A user can edit their reviews<br>
     * Other site features to upload Book details and delete existing books.<br>
+    * In mobile view there a text prompt to swipe right for book listing so user can see full listing. This text prompt
+      appears where a book category has more than one book<br>
 
 
 # Technologies Used
@@ -225,7 +227,9 @@ To deploy to Heroku from GitHub master branch
 
 
 # Feature would like:
-  Recommended Book section. A search book bar
+  * Recommended Book section. 
+  * A search book bar. 
+  * A login for user to add books to a cart to purchase.
 
 # Credits
 
