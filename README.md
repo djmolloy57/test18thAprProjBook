@@ -106,7 +106,6 @@ I used Google fonts to enhance some text sections of the site. I decided on Robo
       in the style css.
 
 # Database Schema
-# Database Schema
 | Field         | Data Type     |   Form Validation Type   | Required Field|
 | ------------- |-------------  |:-------------------------|-------------:
 | _id           | ObjectId      | Auto generated           | Yes
