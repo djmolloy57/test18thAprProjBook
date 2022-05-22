@@ -61,11 +61,12 @@ In the main the wireframes more or less match my final project.
 See links to relevent section of the wireframes below:
 
 * home
-    * Link: <a href="wireframes/wireframe_add_book.png" target="_blank" >Wireframe Home Page</a>
+    * Link: <a href="wireframes/wireframe_home_page.png" target="_blank" >Wireframe Home Page</a>
    
 * Add Book
-    * Link: <a href="wireframes/wireframe_home_page.png" target="_blank" >Wireframe Add Book Page</a>
+    * Link: <a href="wireframes/wireframe_add_book.png" target="_blank" >Wireframe Add Book Page</a>
     
+
 * Delete Book
     * Link: <a href="wireframes/wireframes_delete_book.png" target="_blank">Wireframe Delete Book Page</a>
     
