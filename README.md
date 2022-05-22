@@ -134,6 +134,13 @@ The following site Features were tested with unittest module in test_website.py:
   * /get_fantasy - Fantasy Book listing page
   * /get_history - History Book listing page
 
+Test - Add Book
+All Fields on the Add Book form are required and form will not submit the form information untill
+all the field are completed and the field input is the correct format.
+Example:
+The Book Summary field has a mininmum length and user will receive a prompt if the input is less than the length.
+The Book Cover requires the input type to be a url and will prompt user if input is anything other than a url.
+The Book Category dropdown needs to be selected and will prompt user if no category is selected.
 
 
 Manual Testing
@@ -166,11 +173,13 @@ Materialize styling library was more limited than other other frameworks such as
 5. Add Book page Category field was originally a text field but this caused issues as anything could be entered in this field
    I wanted to make sure only a select type of categories could be entered. I create a select dropdown where only a select amount of topic could entered. 
 
+Test: Site validation
+The site pages and code been validated using the following online validators:
 
-
-
-
- styling for my needs.
+W3C Validation Service
+pep8online
+jshint
+No errors were found.
 
 
 # Deployment
